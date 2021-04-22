@@ -1,0 +1,10 @@
+#!/bin/bash
+
+TODAY=$(date +"%Y-%m-%d")
+CLIENT=$1
+
+FILENAME= "~/dropbox/roles/ps/clients/$CLIENT/$TODAY.txt"
+
+if test -f "$FILENAME"; then
+    everdo $FILENAME
+fi

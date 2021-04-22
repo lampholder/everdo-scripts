@@ -1,0 +1,4 @@
+curl -k --header "Content-Type: application/json" \
+     --request POST \
+     --data "{\"title\": \"{query}\" }" \
+     https://localhost:11111/api/items?key=$everdo_api_key

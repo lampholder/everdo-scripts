@@ -1,0 +1,17 @@
+#!/bin/bash
+everdo_api_key=SeCrEt
+filename=$1
+taskname=$(basename -s .md -s .txt $filename)
+note=$(<$filename)
+
+json_body=$(jq -n \
+    --arg tn "$taskname" \
+    --arg nt "$note" \
+    '{title: $tn, note: $nt, isFocused: true}')
+
+echo $json_body
+
+curl -k --header "Content-Type: application/json" \
+     --request POST \
+     --data "$json_body" \
+     https://localhost:11111/api/items?key=$everdo_api_key

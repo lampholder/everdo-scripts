@@ -1,0 +1,6 @@
+#!/bin/bash
+TODO="${@:1}"
+curl -k --header "Content-Type: application/json" \
+     --request POST \
+     --data "{\"title\": \"$TODO\" }" \
+     https://localhost:11111/api/items?key=S3CrEt
